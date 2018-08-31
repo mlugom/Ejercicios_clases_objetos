@@ -11,9 +11,11 @@
 public class ConjuntoLibros{
     private Libro[] coleccion;
 
-	public ConjuntoLibros(){
-		this.coleccion[] = new Libro[4]; //Construye el arreglo para agregar y eliminar libros
-	}
+    public ConjuntoLibros() {
+        this.coleccion = new Libro[4];
+    }
+    
+    
 
     public boolean anadirLibro(Libro libro){
         for(int i = 0; i < this.coleccion.length; i++){
@@ -57,6 +59,7 @@ public class ConjuntoLibros{
                 return this.coleccion[i]; //retorna el libro con la mayor calificacion
             }
         }
+        return null;
     }
 
     public Libro obtenerPeorCalificado(){
@@ -68,9 +71,10 @@ public class ConjuntoLibros{
         }
         for(int i = 0; i < this.coleccion.length; i++){
             if(this.coleccion[i].getCalificacion() == comp){
-                return this.coleccion[i].getCalificacion(); //retorna el libro con la peor calificacion
+                return this.coleccion[i]; //retorna el libro con la peor calificacion
             }
         }
+        return null;
     }
 
     public Libro[] mostrarContenido(){
