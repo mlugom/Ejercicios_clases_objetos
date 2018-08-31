@@ -8,42 +8,45 @@
  *
  * @author Estudiante
  */
-public class ConjuntoLibros {
+public class ConjuntoLibros{
     private Libro[] coleccion;
 
-    public ConjuntoLibros() {
-        this.coleccion = new Libro[4];
-    }
-    
+	public ConjuntoLibros(){
+		this.coleccion[] = new Libro[4]; //Construye el arreglo para agregar y eliminar libros
+	}
+
     public boolean anadirLibro(Libro libro){
         for(int i = 0; i < this.coleccion.length; i++){
-            if(this.coleccion[i] == null){
+            if(this.coleccion[i] == null){ 
                 this.coleccion[i] = libro;
-                return true;
+                return true; //Si no hay libro, lo coloca; si lo hay, pasa al siguiente
             }
         }
         return false;
     }
+
     public boolean eliminarxAutor(String autor){
         for(int i = 0; i < this.coleccion.length; i++){
             if(this.coleccion[i].getAutor().equals(autor)){
-                this.coleccion[i] = null;
+                this.coleccion[i] = null; //compara autor. Si coinciden, lo quita
                 return true;
             }
         }
         return false;
     }
+
     public boolean eliminarxTitulo(String titulo){
         for(int i = 0; i < this.coleccion.length; i++){
             if(this.coleccion[i].getTitulo().equals(titulo)){
-                this.coleccion[i] = null;
+                this.coleccion[i] = null; //compara titulo. Si coinciden, lo quita
                 return true;
             }
         }
         return false;
     }
+
     public Libro obtenerMejorCalificado(){
-        float comp = 0;
+        float comp = 0; //comparador que toma el valor de la mayor calificacion
         for(int i = 0; i < this.coleccion.length; i++){
             if(this.coleccion[i].getCalificacion() > comp){
                 comp = this.coleccion[i].getCalificacion();
@@ -51,15 +54,26 @@ public class ConjuntoLibros {
         }
         for(int i = 0; i < this.coleccion.length; i++){
             if(this.coleccion[i].getCalificacion() == comp){
-                return this.coleccion[i];
+                return this.coleccion[i]; //retorna el libro con la mayor calificacion
             }
         }
     }
+
     public Libro obtenerPeorCalificado(){
-        return null;
+        float comp = 10; //comparador que toma el valor de la peor calificacion
+        for(int i = 0; i < this.coleccion.length; i++){
+            if(this.coleccion[i].getCalificacion() < comp){
+                comp = this.coleccion[i].getCalificacion();
+            }
+        }
+        for(int i = 0; i < this.coleccion.length; i++){
+            if(this.coleccion[i].getCalificacion() == comp){
+                return this.coleccion[i].getCalificacion(); //retorna el libro con la peor calificacion
+            }
+        }
     }
+
     public Libro[] mostrarContenido(){
-        return this.coleccion;
+        return this.coleccion; //retorna toda la coleccion
     }
-            
 }
